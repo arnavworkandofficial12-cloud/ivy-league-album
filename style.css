@@ -1,0 +1,140 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f8fafc;
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 40px 24px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #94a3b8;
+    letter-spacing: 0.3px;
+}
+
+#album-view {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+        transform: scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#album-view img {
+    animation: fadein 0.6s ease;
+    height: 180px;
+    width: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid #e2e8f0;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+#album-view img:hover {
+    transform: scale(1.04);
+    border-color: #818cf8;
+    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.2);
+}
+
+#modal-view {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.92);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal-view img {
+    max-height: 85vh;
+    max-width: 85vw;
+    border-radius: 10px;
+    animation: fadein 0.35s ease;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+#modal-view.hidden {
+    display: none;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+/* Navigation buttons */
+#close-btn,
+#prev-btn,
+#next-btn {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+#close-btn:hover,
+#prev-btn:hover,
+#next-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+#close-btn {
+    top: 20px;
+    right: 20px;
+}
+
+#prev-btn {
+    left: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#next-btn {
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+}
